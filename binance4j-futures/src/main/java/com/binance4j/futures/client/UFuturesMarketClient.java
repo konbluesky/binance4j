@@ -2,12 +2,12 @@ package com.binance4j.futures.client;
 
 import com.binance4j.core.Request;
 import com.binance4j.futures.client.mapping.UMarketMapping;
-import com.binance4j.futures.dto.ExchangeInfo;
-import com.binance4j.futures.dto.OrderBook;
-import com.binance4j.futures.dto.PremiumIndex;
-import com.binance4j.futures.dto.ServerTimeResponse;
+import com.binance4j.futures.dto.*;
 import com.binance4j.futures.param.OrderBookParams;
 import com.binance4j.futures.param.PremiumIndexParams;
+import com.binance4j.futures.param.PriceTickerParams;
+
+import java.util.List;
 
 /**
  * <p> @Date : 2022/9/26 </p>
@@ -55,5 +55,13 @@ public class UFuturesMarketClient extends BaseUFuturesClient<UMarketMapping> {
 
     public Request<PremiumIndex> premiumIndex(PremiumIndexParams params) {
         return new Request<>(service.premiumIndex(params.toMap()));
+    }
+
+    public Request<PriceTicker> getTicker(PriceTickerParams params) {
+        return new Request<>(service.getTicker(params.toMap()));
+    }
+
+    public Request<List<PriceTicker>> getTickers() {
+        return new Request<>(service.getTicker());
     }
 }

@@ -63,6 +63,7 @@ public record SymbolInfo(
                          @ApiModelProperty("Symbol status.") List<String> OrderType
 
 ){
+
 //                         @ApiModelProperty("Allowed orders on the symbol*.") @JsonDeserialize(using = SymbolFiltersDeserializer.class) SymbolFilters filters,
 //                         @ApiModelProperty("Symbol filters.") List<String> permissions,
 //                         @ApiModelProperty("Base asset.") int baseAssetPrecision,

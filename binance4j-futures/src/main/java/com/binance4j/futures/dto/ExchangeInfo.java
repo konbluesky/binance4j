@@ -18,11 +18,9 @@ import java.util.List;
  */
 @ApiModel("The current exchange trading rules and symbol information.")
 public record ExchangeInfo(@ApiModelProperty("Trading rules of the exchange.") List<ExchangeFilter> exchangeFilters,
-                           @ApiModelProperty("Request limits (weight, orders, raw...).") List<RateLimit> rateLimits,
-						   @ApiModelProperty("Server time.") long serverTime,
+                           @ApiModelProperty("Request limits (weight, orders, raw...).") List<RateLimit> rateLimits, @ApiModelProperty("Server time.") long serverTime,
 
-                           @ApiModelProperty("Asset Information.") List<Asset> assets,
-						   @ApiModelProperty("Available symbols on the exchange.") List<SymbolInfo> symbols,
+                           @ApiModelProperty("Asset Information.") List<Asset> assets, @ApiModelProperty("Available symbols on the exchange.") List<SymbolInfo> symbols,
                            @ApiModelProperty("Server timezone.") String timezone) {
 
     /**

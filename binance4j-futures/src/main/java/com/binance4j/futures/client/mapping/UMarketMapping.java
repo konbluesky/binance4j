@@ -5,11 +5,13 @@ import com.binance4j.futures.dto.ExchangeInfo;
 import com.binance4j.futures.dto.OrderBook;
 import com.binance4j.futures.dto.PremiumIndex;
 import com.binance4j.futures.dto.ServerTimeResponse;
+import com.binance4j.futures.dto.PriceTicker;
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Headers;
 import retrofit2.http.QueryMap;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -61,4 +63,21 @@ public interface UMarketMapping extends RestMapping {
     @GET(BASE + "premiumIndex")
     @Headers({ IP_H, WEIGHT_ONE_H })
     Call<PremiumIndex> premiumIndex(@QueryMap Map<String, Object> map);
+
+    /**
+     * @return The generated Retrofit call.
+     */
+    @GET(BASE + "ticker/price")
+    @Headers({ IP_H, "X-WEIGHT: 2" })
+    Call<List<PriceTicker>> getTicker();
+
+
+    /**
+     * @param map Query map.
+     *
+     * @return The generated Retrofit call.
+     */
+    @GET(BASE + "ticker/price")
+    @Headers({ IP_H, WEIGHT_ONE_H })
+    Call<PriceTicker> getTicker(@QueryMap Map<String, Object> map);
 }

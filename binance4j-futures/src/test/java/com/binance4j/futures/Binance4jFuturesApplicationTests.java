@@ -8,11 +8,13 @@ import com.binance4j.futures.param.OrderBookParams;
 import com.binance4j.futures.param.PremiumIndexParams;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 
 import java.text.DecimalFormat;
 import java.text.ParseException;
 
+@Slf4j
 public class Binance4jFuturesApplicationTests extends CustomTest {
 
     UFuturesMarketClient client = new UFuturesMarketClient(key, secret);
@@ -36,6 +38,16 @@ public class Binance4jFuturesApplicationTests extends CustomTest {
     public void testGetExchangeInfo() throws ApiException, JsonProcessingException {
         ExchangeInfo exchangeInfo = client.getExchangeInfo().sync();
         ObjectMapper objectMapper = new ObjectMapper();
+        SymbolInfo symbolInfo = exchangeInfo.symbols().get(100);
+        System.out.println(exchangeInfo.symbols().size());
+        System.out.println(symbolInfo.filters().price().tickSize());
+        System.out.println(objectMapper.writeValueAsString(symbolInfo));
+    }
+
+    @Test
+    public void testGetExchangeInfoPrice() throws ApiException, JsonProcessingException {
+        ExchangeInfo exchangeInfo = client.getExchangeInfo().sync();
+        ObjectMapper objectMapper = new ObjectMapper();
         SymbolInfo symbolInfo = exchangeInfo.symbols().get(0);
         System.out.println(exchangeInfo.symbols().size());
         System.out.println(objectMapper.writeValueAsString(symbolInfo));
@@ -51,7 +63,7 @@ public class Binance4jFuturesApplicationTests extends CustomTest {
 
     @Test
     void testPremiumIndex() throws ApiException, JsonProcessingException, ParseException {
-        PremiumIndex premiumIndex = client.premiumIndex(new PremiumIndexParams("BNBUSDT")).sync();
+        PremiumIndex premiumIndex = client.premiumIndex(new PremiumIndexParams("SUSHIUSDT")).sync();
         ObjectMapper objectMapper = new ObjectMapper();
 
         DecimalFormat decimalFormat = new DecimalFormat("0.00000000");
@@ -59,10 +71,11 @@ public class Binance4jFuturesApplicationTests extends CustomTest {
         System.out.println(premiumIndex.lastFundingRate());
         System.out.println(Math.abs(Double.parseDouble(premiumIndex.lastFundingRate())));
         System.out.println("lastFundingRate: " + Double.toString(premiumIndex.absLastFundingRate()));
-        System.out.println(Math.abs(Double.parseDouble(premiumIndex.lastFundingRate()))>0.0001);
-        System.out.println(Double.parseDouble(premiumIndex.lastFundingRate())<-0.001);
-        System.out.println(Double.parseDouble(premiumIndex.lastFundingRate())>-0.001);
+        System.out.println(Math.abs(Double.parseDouble(premiumIndex.lastFundingRate())) > 0.0001);
+        System.out.println(Double.parseDouble(premiumIndex.lastFundingRate()) < -0.001);
+        System.out.println(Double.parseDouble(premiumIndex.lastFundingRate()) > -0.001);
         System.out.println(objectMapper.writeValueAsString(premiumIndex));
+        System.out.println(decimalFormat.format(Double.parseDouble(premiumIndex.lastFundingRate())));
         //        testNotThrow(client.getOrderBook(new OrderBookParams(symbol)));
     }
 }
