@@ -2,11 +2,11 @@ package com.binance4j.futures.param;
 
 import com.binance4j.core.annotation.Param;
 import com.binance4j.core.param.Params;
-import com.binance4j.futures.client.FuturesMarketClient;
+import com.binance4j.futures.client.UFuturesMarketClient;
 import com.binance4j.futures.dto.OrderBookLimit;
 
 /**
- * {@link FuturesMarketClient#getOrderBook} params.
+ * {@link UFuturesMarketClient#getOrderBook} params.
  *
  * @param symbol Trading pair we want the depth.
  * @param limit  Market depth size.

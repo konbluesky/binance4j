@@ -3,6 +3,7 @@ package com.binance4j.futures.client.mapping;
 import com.binance4j.core.client.RestMapping;
 import com.binance4j.futures.dto.ExchangeInfo;
 import com.binance4j.futures.dto.OrderBook;
+import com.binance4j.futures.dto.PremiumIndex;
 import com.binance4j.futures.dto.ServerTimeResponse;
 import retrofit2.Call;
 import retrofit2.http.GET;
@@ -17,10 +18,10 @@ import java.util.Map;
  *
  * <p> @author konbluesky </p>
  */
-public interface MarketMapping extends RestMapping {
+public interface BMarketMapping extends RestMapping {
 
     /** Base uri */
-    String BASE = "/fapi/v1/";
+    String BASE = "/dapi/v1/";
 
     /**
      * @return The generated Retrofit call.
@@ -45,10 +46,19 @@ public interface MarketMapping extends RestMapping {
 
     /**
      * @param map Query map.
+     *
      * @return The generated Retrofit call.
      */
     @GET(BASE + "depth")
     @Headers({ IP_H, "X-WEIGHT: 50" })
     Call<OrderBook> getOrderBook(@QueryMap Map<String, Object> map);
 
+    /**
+     * @param map Query map.
+     *
+     * @return The generated Retrofit call.
+     */
+    @GET(BASE + "premiumIndex")
+    @Headers({ IP_H, WEIGHT_ONE_H })
+    Call<PremiumIndex> premiumIndex(@QueryMap Map<String, Object> map);
 }

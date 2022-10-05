@@ -10,18 +10,22 @@ import retrofit2.Retrofit;
 import retrofit2.converter.jackson.JacksonConverterFactory;
 
 /**
+ * U-based contract access interface base class
+ *
  * <p> @Date : 2022/9/26 </p>
  * <p> @Project : binance4j</p>
  *
  * <p> @author konbluesky </p>
  */
-public class BaseFuturesClient<T> extends RestClient<T> {
+public class BaseUFuturesClient<T> extends RestClient<T> {
+
     /** URL base domain. */
     protected String baseDomain = "fapi.binance.com";
+
     /** Testnet URL base domain. */
     protected String testnetDomain = "testnet.binancefuture.com";
 
-    protected BaseFuturesClient(Class<T> mapping, String key, String secret) {
+    protected BaseUFuturesClient(Class<T> mapping, String key, String secret) {
         super(mapping, key, secret);
         this.createService();
     }
@@ -34,9 +38,7 @@ public class BaseFuturesClient<T> extends RestClient<T> {
         httpClient = new OkHttpClient.Builder().dispatcher(dispatcher).build();
         apiUrl = String.format("https://%s", useTestnet ? testnetDomain : baseDomain);
         interceptor = new AuthenticationInterceptor(key, secret);
-        client = httpClient.newBuilder().addInterceptor(interceptor)
-                           .addInterceptor(new MetaHeadersInterceptor()).build();
-        service = new Retrofit.Builder().baseUrl(apiUrl).addConverterFactory(converterFactory).client(client).build()
-                                        .create(mapping);
+        client = httpClient.newBuilder().addInterceptor(interceptor).addInterceptor(new MetaHeadersInterceptor()).build();
+        service = new Retrofit.Builder().baseUrl(apiUrl).addConverterFactory(converterFactory).client(client).build().create(mapping);
     }
 }

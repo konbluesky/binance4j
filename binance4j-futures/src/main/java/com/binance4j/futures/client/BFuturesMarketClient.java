@@ -1,11 +1,14 @@
 package com.binance4j.futures.client;
 
 import com.binance4j.core.Request;
-import com.binance4j.futures.client.mapping.MarketMapping;
+import com.binance4j.futures.client.mapping.BMarketMapping;
+import com.binance4j.futures.client.mapping.UMarketMapping;
 import com.binance4j.futures.dto.ExchangeInfo;
 import com.binance4j.futures.dto.OrderBook;
+import com.binance4j.futures.dto.PremiumIndex;
 import com.binance4j.futures.dto.ServerTimeResponse;
 import com.binance4j.futures.param.OrderBookParams;
+import com.binance4j.futures.param.PremiumIndexParams;
 
 /**
  * <p> @Date : 2022/9/26 </p>
@@ -13,10 +16,10 @@ import com.binance4j.futures.param.OrderBookParams;
  *
  * <p> @author konbluesky </p>
  */
-public class FuturesMarketClient extends BaseFuturesClient<MarketMapping> {
+public class BFuturesMarketClient extends BaseUFuturesClient<BMarketMapping> {
 
-    public FuturesMarketClient(String key, String secret) {
-        super(MarketMapping.class, key, secret);
+    public BFuturesMarketClient(String key, String secret) {
+        super(BMarketMapping.class, key, secret);
     }
 
     /**
@@ -49,5 +52,9 @@ public class FuturesMarketClient extends BaseFuturesClient<MarketMapping> {
      */
     public Request<OrderBook> getOrderBook(OrderBookParams params) {
         return new Request<>(service.getOrderBook(params.toMap()));
+    }
+
+    public Request<PremiumIndex> premiumIndex(PremiumIndexParams params) {
+        return new Request<>(service.premiumIndex(params.toMap()));
     }
 }

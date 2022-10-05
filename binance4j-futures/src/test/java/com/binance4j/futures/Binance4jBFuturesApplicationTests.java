@@ -2,7 +2,7 @@ package com.binance4j.futures;
 
 import com.binance4j.core.exception.ApiException;
 import com.binance4j.core.test.CustomTest;
-import com.binance4j.futures.client.UFuturesMarketClient;
+import com.binance4j.futures.client.BFuturesMarketClient;
 import com.binance4j.futures.dto.*;
 import com.binance4j.futures.param.OrderBookParams;
 import com.binance4j.futures.param.PremiumIndexParams;
@@ -13,11 +13,11 @@ import org.junit.jupiter.api.Test;
 import java.text.DecimalFormat;
 import java.text.ParseException;
 
-public class Binance4jFuturesApplicationTests extends CustomTest {
+public class Binance4jBFuturesApplicationTests extends CustomTest {
 
-    UFuturesMarketClient client = new UFuturesMarketClient(key, secret);
+    BFuturesMarketClient client = new BFuturesMarketClient(key, secret);
 
-    public Binance4jFuturesApplicationTests() {
+    public Binance4jBFuturesApplicationTests() {
         //        client.getMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, true);
         //        client.getMapper().configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, true);
     }
@@ -59,9 +59,9 @@ public class Binance4jFuturesApplicationTests extends CustomTest {
         System.out.println(premiumIndex.lastFundingRate());
         System.out.println(Math.abs(Double.parseDouble(premiumIndex.lastFundingRate())));
         System.out.println("lastFundingRate: " + Double.toString(premiumIndex.absLastFundingRate()));
-        System.out.println(Math.abs(Double.parseDouble(premiumIndex.lastFundingRate()))>0.0001);
-        System.out.println(Double.parseDouble(premiumIndex.lastFundingRate())<-0.001);
-        System.out.println(Double.parseDouble(premiumIndex.lastFundingRate())>-0.001);
+        System.out.println(Math.abs(Double.parseDouble(premiumIndex.lastFundingRate())) > 0.0001);
+        System.out.println(Double.parseDouble(premiumIndex.lastFundingRate()) < -0.001);
+        System.out.println(Double.parseDouble(premiumIndex.lastFundingRate()) > -0.001);
         System.out.println(objectMapper.writeValueAsString(premiumIndex));
         //        testNotThrow(client.getOrderBook(new OrderBookParams(symbol)));
     }
