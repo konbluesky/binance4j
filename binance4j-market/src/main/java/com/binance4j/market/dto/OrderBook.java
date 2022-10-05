@@ -18,4 +18,9 @@ import io.swagger.annotations.ApiModelProperty;
 public record OrderBook(@ApiModelProperty("Last update id of this order book.") long lastUpdateId,
 		@ApiModelProperty("List of bids (price/qty).") List<OrderBookEntry> bids,
 		@ApiModelProperty("List of asks (price/qty).") List<OrderBookEntry> asks) {
+
+	public double getFirstAsk(){
+		return Double.parseDouble(asks().get(0).price());
+	}
+
 }
