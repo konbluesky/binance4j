@@ -191,6 +191,7 @@ public class TakeProfitLimitOrder extends BaseOrder {
 	 * @param quantity      Quantity.
 	 * @param price         Price.
 	 * @param trailingDelta Trailing delta.
+	 * @param timeInForce Time in force
 	 * @return An instance of {@link TakeProfitLimitOrder}.
 	 */
 	public static TakeProfitLimitOrder buy(String symbol, String quantity, String price, Long trailingDelta,
@@ -205,6 +206,7 @@ public class TakeProfitLimitOrder extends BaseOrder {
 	 * @param quantity      Quantity.
 	 * @param price         Price.
 	 * @param trailingDelta Trailing delta.
+	 * @param timeInForce Time in force
 	 * @return An instance of {@link TakeProfitLimitOrder}.
 	 */
 	public static TakeProfitLimitOrder sell(String symbol, String quantity, String price, Long trailingDelta,

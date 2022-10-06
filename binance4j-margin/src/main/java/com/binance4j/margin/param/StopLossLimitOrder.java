@@ -23,7 +23,7 @@ public class StopLossLimitOrder extends BaseOrder {
 	String icebergQty;
 
 	/**
-	 * 
+	 *
 	 * @param symbol      Symbol.
 	 * @param side        Side.
 	 * @param quantity    Order quantity.
@@ -42,7 +42,7 @@ public class StopLossLimitOrder extends BaseOrder {
 	}
 
 	/**
-	 * 
+	 *
 	 * @param symbol        Symbol.
 	 * @param side          Side.
 	 * @param quantity      Order quantity.
@@ -62,7 +62,7 @@ public class StopLossLimitOrder extends BaseOrder {
 
 	/**
 	 * Creates an instance of {@link StopLossLimitOrder} in the BUY side.
-	 * 
+	 *
 	 * @param symbol      Symbol.
 	 * @param quantity    Quantity.
 	 * @param price       Price.
@@ -77,7 +77,7 @@ public class StopLossLimitOrder extends BaseOrder {
 
 	/**
 	 * Creates an instance of {@link StopLossLimitOrder} in the SELL side.
-	 * 
+	 *
 	 * @param symbol      Symbol.
 	 * @param quantity    Quantity.
 	 * @param price       Price.
@@ -92,7 +92,7 @@ public class StopLossLimitOrder extends BaseOrder {
 
 	/**
 	 * Creates an instance of {@link StopLossLimitOrder} in the BUY side.
-	 * 
+	 *
 	 * @param symbol    Symbol.
 	 * @param quantity  Quantity.
 	 * @param price     Price.
@@ -105,7 +105,7 @@ public class StopLossLimitOrder extends BaseOrder {
 
 	/**
 	 * Creates an instance of {@link StopLossLimitOrder} in the SELL side.
-	 * 
+	 *
 	 * @param symbol    Symbol.
 	 * @param quantity  Quantity.
 	 * @param price     Price.
@@ -118,7 +118,7 @@ public class StopLossLimitOrder extends BaseOrder {
 
 	/**
 	 * Creates an instance of {@link StopLossLimitOrder} in the BUY side.
-	 * 
+	 *
 	 * @param symbol        Symbol.
 	 * @param quantity      Quantity.
 	 * @param price         Price.
@@ -131,7 +131,7 @@ public class StopLossLimitOrder extends BaseOrder {
 
 	/**
 	 * Creates an instance of {@link StopLossLimitOrder} in the SELL side.
-	 * 
+	 *
 	 * @param symbol        Symbol.
 	 * @param quantity      Quantity.
 	 * @param price         Price.
@@ -144,11 +144,12 @@ public class StopLossLimitOrder extends BaseOrder {
 
 	/**
 	 * Creates an instance of {@link StopLossLimitOrder} in the BUY side.
-	 * 
+	 *
 	 * @param symbol        Symbol.
 	 * @param quantity      Quantity.
 	 * @param price         Price.
 	 * @param trailingDelta Trailing delta.
+	 * @param timeInForce  Time in Force
 	 * @return An instance of {@link StopLossLimitOrder}.
 	 */
 	public static StopLossLimitOrder buy(String symbol, String quantity, String price, Long trailingDelta,
@@ -158,11 +159,12 @@ public class StopLossLimitOrder extends BaseOrder {
 
 	/**
 	 * Creates an instance of {@link StopLossLimitOrder} in the SELL side.
-	 * 
+	 *
 	 * @param symbol        Symbol.
 	 * @param quantity      Quantity.
 	 * @param price         Price.
 	 * @param trailingDelta Trailing delta.
+	 * @param timeInForce  Time in Force
 	 * @return An instance of {@link StopLossLimitOrder}.
 	 */
 	public static StopLossLimitOrder sell(String symbol, String quantity, String price, Long trailingDelta,

@@ -5,6 +5,7 @@ import com.binance4j.c2c.client.C2CClient;
 import com.binance4j.convert.client.ConvertClient;
 import com.binance4j.core.client.RestClient;
 import com.binance4j.fiat.client.FiatClient;
+import com.binance4j.futures.client.UFuturesMarketClient;
 import com.binance4j.loan.client.LoanClient;
 import com.binance4j.margin.client.MarginClient;
 import com.binance4j.market.client.MarketClient;
@@ -63,6 +64,8 @@ public class RestConnectors {
 	protected WalletClient walletClient;
 	/** Inner {@link WalletClient}. */
 	protected UserDataClient userDataClient;
+	/** Inner {@link UFuturesMarketClient} */
+	protected UFuturesMarketClient uFuturesMarketClient;
 
 	/**
 	 * @param key    API key
@@ -75,7 +78,7 @@ public class RestConnectors {
 
 	/**
 	 * Will update the client's keys if they have changed in the container.
-	 * 
+	 *
 	 * @param client
 	 */
 	private void updateClientKeys(RestClient<?> client) {
@@ -86,7 +89,7 @@ public class RestConnectors {
 
 	/**
 	 * Lazy loads and returns a cached instance of {@link BLVTClient}.
-	 * 
+	 *
 	 * @deprecated Will be removed in a next version.
 	 * @return an instance of {@link BLVTClient}.
 	 */
@@ -97,7 +100,7 @@ public class RestConnectors {
 
 	/**
 	 * Lazy loads and returns a cached instance of {@link FiatClient}.
-	 * 
+	 *
 	 * @deprecated Will be removed in a next version.
 	 * @return an instance of {@link FiatClient}.
 	 */
@@ -108,7 +111,7 @@ public class RestConnectors {
 
 	/**
 	 * Lazy loads and returns a cached instance of {@link convertClient}.
-	 * 
+	 *
 	 * @deprecated Will be removed in a next version.
 	 * @return an instance of {@link convertClient}.
 	 */
@@ -119,7 +122,7 @@ public class RestConnectors {
 
 	/**
 	 * Lazy loads and returns a cached instance of {@link FiatClient}.
-	 * 
+	 *
 	 * @deprecated Will be removed in a next version.
 	 * @return an instance of {@link FiatClient}.
 	 */
@@ -130,7 +133,7 @@ public class RestConnectors {
 
 	/**
 	 * Lazy loads and returns a cached instance of {@link LoanClient}.
-	 * 
+	 *
 	 * @deprecated Will be removed in a next version.
 	 * @return an instance of {@link LoanClient}.
 	 */
@@ -141,7 +144,7 @@ public class RestConnectors {
 
 	/**
 	 * Lazy loads and returns a cached instance of {@link MarginClient}.
-	 * 
+	 *
 	 * @deprecated Will be removed in a next version.
 	 * @return an instance of {@link MarginClient}.
 	 */
@@ -152,7 +155,7 @@ public class RestConnectors {
 
 	/**
 	 * Lazy loads and returns a cached instance of {@link MarketClient}.
-	 * 
+	 *
 	 * @deprecated Will be removed in a next version.
 	 * @return an instance of {@link MarketClient}.
 	 */
@@ -163,7 +166,7 @@ public class RestConnectors {
 
 	/**
 	 * Lazy loads and returns a cached instance of {@link MiningClient}.
-	 * 
+	 *
 	 * @deprecated Will be removed in a next version.
 	 * @return an instance of {@link MiningClient}.
 	 */
@@ -174,7 +177,7 @@ public class RestConnectors {
 
 	/**
 	 * Lazy loads and returns a cached instance of {@link NFTClient}.
-	 * 
+	 *
 	 * @deprecated Will be removed in a next version.
 	 * @return an instance of {@link NFTClient}.
 	 */
@@ -185,7 +188,7 @@ public class RestConnectors {
 
 	/**
 	 * Lazy loads and returns a cached instance of {@link PayClient}.
-	 * 
+	 *
 	 * @deprecated Will be removed in a next version.
 	 * @return an instance of {@link PayClient}.
 	 */
@@ -196,7 +199,7 @@ public class RestConnectors {
 
 	/**
 	 * Lazy loads and returns a cached instance of {@link PortfolioMarginClient}.
-	 * 
+	 *
 	 * @deprecated Will be removed in a next version.
 	 * @return an instance of {@link PortfolioMarginClient}.
 	 */
@@ -207,7 +210,7 @@ public class RestConnectors {
 
 	/**
 	 * Lazy loads and returns a cached instance of {@link RebateClient}.
-	 * 
+	 *
 	 * @deprecated Will be removed in a next version.
 	 * @return an instance of {@link RebateClient}.
 	 */
@@ -218,7 +221,7 @@ public class RestConnectors {
 
 	/**
 	 * Lazy loads and returns a cached instance of {@link SavingsClient}.
-	 * 
+	 *
 	 * @deprecated Will be removed in a next version.
 	 * @return an instance of {@link SavingsClient}.
 	 */
@@ -229,7 +232,7 @@ public class RestConnectors {
 
 	/**
 	 * Lazy loads and returns a cached instance of {@link SpotClient}.
-	 * 
+	 *
 	 * @deprecated Will be removed in a next version.
 	 * @return an instance of {@link SpotClient}.
 	 */
@@ -240,7 +243,7 @@ public class RestConnectors {
 
 	/**
 	 * Lazy loads and returns a cached instance of {@link StakingClient}.
-	 * 
+	 *
 	 * @deprecated Will be removed in a next version.
 	 * @return an instance of {@link StakingClient}.
 	 */
@@ -251,7 +254,7 @@ public class RestConnectors {
 
 	/**
 	 * Lazy loads and returns a cached instance of {@link VisionSpotClient}.
-	 * 
+	 *
 	 * @deprecated Will be removed in a next version.
 	 * @return an instance of {@link VisionSpotClient}.
 	 */
@@ -262,7 +265,7 @@ public class RestConnectors {
 
 	/**
 	 * Lazy loads and returns a cached instance of {@link WalletClient}.
-	 * 
+	 *
 	 * @deprecated Will be removed in a next version.
 	 * @return an instance of {@link WalletClient}.
 	 */
@@ -273,7 +276,7 @@ public class RestConnectors {
 
 	/**
 	 * Lazy loads and returns a cached instance of {@link BLVTClient}.
-	 * 
+	 *
 	 * @return an instance of {@link BLVTClient}.
 	 */
 	public BLVTClient blvt() {
@@ -286,7 +289,7 @@ public class RestConnectors {
 
 	/**
 	 * Lazy loads and returns a cached instance of {@link C2CClient}.
-	 * 
+	 *
 	 * @return an instance of {@link C2CClient}.
 	 */
 	public C2CClient c2c() {
@@ -299,7 +302,7 @@ public class RestConnectors {
 
 	/**
 	 * Lazy loads and returns a cached instance of {@link convertClient}.
-	 * 
+	 *
 	 * @return an instance of {@link convertClient}.
 	 */
 	public ConvertClient convert() {
@@ -312,7 +315,7 @@ public class RestConnectors {
 
 	/**
 	 * Lazy loads and returns a cached instance of {@link FiatClient}.
-	 * 
+	 *
 	 * @return an instance of {@link FiatClient}.
 	 */
 	public FiatClient fiat() {
@@ -325,7 +328,7 @@ public class RestConnectors {
 
 	/**
 	 * Lazy loads and returns a cached instance of {@link LoanClient}.
-	 * 
+	 *
 	 * @return an instance of {@link LoanClient}.
 	 */
 	public LoanClient loan() {
@@ -338,7 +341,7 @@ public class RestConnectors {
 
 	/**
 	 * Lazy loads and returns a cached instance of {@link MarginClient}.
-	 * 
+	 *
 	 * @return an instance of {@link MarginClient}.
 	 */
 	public MarginClient margin() {
@@ -351,7 +354,7 @@ public class RestConnectors {
 
 	/**
 	 * Lazy loads and returns a cached instance of {@link MarketClient}.
-	 * 
+	 *
 	 * @return an instance of {@link MarketClient}.
 	 */
 	public MarketClient market() {
@@ -364,7 +367,7 @@ public class RestConnectors {
 
 	/**
 	 * Lazy loads and returns a cached instance of {@link MiningClient}.
-	 * 
+	 *
 	 * @return an instance of {@link MiningClient}.
 	 */
 	public MiningClient mining() {
@@ -377,7 +380,7 @@ public class RestConnectors {
 
 	/**
 	 * Lazy loads and returns a cached instance of {@link NFTClient}.
-	 * 
+	 *
 	 * @return an instance of {@link NFTClient}.
 	 */
 	public NFTClient nft() {
@@ -390,7 +393,7 @@ public class RestConnectors {
 
 	/**
 	 * Lazy loads and returns a cached instance of {@link PayClient}.
-	 * 
+	 *
 	 * @return an instance of {@link PayClient}.
 	 */
 	public PayClient pay() {
@@ -403,7 +406,7 @@ public class RestConnectors {
 
 	/**
 	 * Lazy loads and returns a cached instance of {@link PortfolioMarginClient}.
-	 * 
+	 *
 	 * @return an instance of {@link PortfolioMarginClient}.
 	 */
 	public PortfolioMarginClient portfolioMargin() {
@@ -416,7 +419,7 @@ public class RestConnectors {
 
 	/**
 	 * Lazy loads and returns a cached instance of {@link RebateClient}.
-	 * 
+	 *
 	 * @return an instance of {@link RebateClient}.
 	 */
 	public RebateClient rebate() {
@@ -429,7 +432,7 @@ public class RestConnectors {
 
 	/**
 	 * Lazy loads and returns a cached instance of {@link SavingsClient}.
-	 * 
+	 *
 	 * @return an instance of {@link SavingsClient}.
 	 */
 	public SavingsClient savings() {
@@ -442,7 +445,7 @@ public class RestConnectors {
 
 	/**
 	 * Lazy loads and returns a cached instance of {@link SpotClient}.
-	 * 
+	 *
 	 * @return an instance of {@link SpotClient}.
 	 */
 	public SpotClient spot() {
@@ -455,7 +458,7 @@ public class RestConnectors {
 
 	/**
 	 * Lazy loads and returns a cached instance of {@link StakingClient}.
-	 * 
+	 *
 	 * @return an instance of {@link StakingClient}.
 	 */
 	public StakingClient staking() {
@@ -468,7 +471,7 @@ public class RestConnectors {
 
 	/**
 	 * Lazy loads and returns a cached instance of {@link VisionSpotClient}.
-	 * 
+	 *
 	 * @return an instance of {@link VisionSpotClient}.
 	 */
 	public VisionSpotClient visionSpot() {
@@ -480,7 +483,7 @@ public class RestConnectors {
 
 	/**
 	 * Lazy loads and returns a cached instance of {@link WalletClient}.
-	 * 
+	 *
 	 * @return an instance of {@link WalletClient}.
 	 */
 	public WalletClient wallet() {
@@ -493,7 +496,7 @@ public class RestConnectors {
 
 	/**
 	 * Lazy loads and returns a cached instance of {@link UserDataClient}.
-	 * 
+	 *
 	 * @return an instance of {@link UserDataClient}.
 	 */
 	public UserDataClient user() {
@@ -504,9 +507,17 @@ public class RestConnectors {
 		return userDataClient;
 	}
 
+	public UFuturesMarketClient uFuturesMarket(){
+		if(uFuturesMarketClient==null){
+			uFuturesMarketClient=new UFuturesMarketClient(key,secret);
+		}
+		updateClientKeys(uFuturesMarketClient);
+		return uFuturesMarketClient;
+	}
+
 	/**
 	 * Updates the API keys.
-	 * 
+	 *
 	 * @param key    New public key.
 	 * @param secret New secret key.
 	 */

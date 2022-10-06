@@ -10,16 +10,11 @@ import com.binance4j.margin.dto.IsolatedFeeData;
 import com.binance4j.market.dto.PriceTicker;
 import com.binance4j.market.param.ExchangeInfoParams;
 import com.binance4j.market.param.PriceTickersParams;
-import com.google.common.collect.Lists;
-import com.google.common.collect.Maps;
-import com.google.common.collect.Sets;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 
 import java.text.DecimalFormat;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 
 /**
@@ -36,11 +31,11 @@ public class PreLoader {
 
     private UFuturesMarketClient uFuturesMarketClient;
 
-    private Set<String> symbols = Sets.newHashSet();
+    private Set<String> symbols = new TreeSet<>();
 
-    private Map<String, String> dailyInterest = Maps.newHashMap();
+    private Map<String, String> dailyInterest = new HashMap<>();
 
-    private Map<String, String> priceScales = Maps.newHashMap();
+    private Map<String, String> priceScales = new HashMap<>();
 
     public String getDailyInterest(String symbol){
         return dailyInterest.get(symbol);
@@ -58,8 +53,8 @@ public class PreLoader {
 
     private void initPriceScales() {
         try {
-            Map<String, String> futureTickSizes = Maps.newHashMap();
-            Map<String, String> spotTickSizes = Maps.newHashMap();
+            Map<String, String> futureTickSizes = new HashMap<>();
+            Map<String, String> spotTickSizes =  new HashMap<>();
             for (SymbolInfo symbolInfo : uFuturesMarketClient.getExchangeInfo().sync().symbols()) {
                 futureTickSizes.put(symbolInfo.symbol(), symbolInfo.filters().price().tickSize());
             }

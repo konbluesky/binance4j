@@ -10,7 +10,9 @@ import com.binance4j.margin.client.MarginClient;
 import com.binance4j.margin.dto.IsolatedFee;
 import com.binance4j.margin.dto.IsolatedFeeData;
 import com.binance4j.margin.dto.IsolatedSymbol;
+import com.binance4j.margin.dto.MaxBorrowable;
 import com.binance4j.margin.param.IsolatedFeeParams;
+import com.binance4j.margin.param.MaxBorrowableParams;
 import com.binance4j.market.client.MarketClient;
 import com.binance4j.market.dto.ExchangeInfo;
 import com.binance4j.market.dto.OrderBook;
@@ -18,11 +20,11 @@ import com.binance4j.market.dto.PriceTicker;
 import com.binance4j.market.param.ExchangeInfoParams;
 import com.binance4j.market.param.OrderBookParams;
 import com.binance4j.market.param.PriceTickersParams;
-import com.google.common.collect.Maps;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 
 import java.text.DecimalFormat;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -146,8 +148,8 @@ public class TryByListen extends CustomTest {
     @Test
     public void testPrecision() throws ApiException {
 
-        Map<String, String> futureTickSizes = Maps.newHashMap();
-        Map<String, String> spotTickSizes = Maps.newHashMap();
+        Map<String, String> futureTickSizes = new HashMap<>();
+        Map<String, String> spotTickSizes = new HashMap<>();
         for (SymbolInfo symbolInfo : ufuturesMarketClient.getExchangeInfo().sync().symbols()) {
             futureTickSizes.put(symbolInfo.symbol(), symbolInfo.filters().price().tickSize());
         }
@@ -200,5 +202,12 @@ public class TryByListen extends CustomTest {
             IsolatedFeeData useAsset = fee.getUseAsset();
             log.info("useAsset : {} {} {}", useAsset.coin(), useAsset.borrowLimit(), useAsset.dailyInterest());
         }
+    }
+
+
+    @Test
+    void maxBorrowLimit() throws ApiException {
+        MaxBorrowable maxBorrowable = connectors.rest().margin().getMaxBorrowable(new MaxBorrowableParams("DUSK")).sync();
+        log.info(maxBorrowable.toString());
     }
 }

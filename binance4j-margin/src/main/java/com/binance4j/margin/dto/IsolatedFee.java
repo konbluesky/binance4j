@@ -1,5 +1,6 @@
 package com.binance4j.margin.dto;
 
+import com.binance4j.margin.param.TakeProfitLimitOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
@@ -18,9 +19,11 @@ public record IsolatedFee(@ApiModelProperty("VIP level.") int vipLevel, @ApiMode
                           @ApiModelProperty("Leverage.") String leverage, @ApiModelProperty("Isolated fee data.") List<IsolatedFeeData> data) {
 
     /**
-     * Obtain assets other than BUSD & USDT
+     * <p>
+     * Obtain assets other than BUSD and USDT
+     * </p>
      *
-     * @return
+     * @return  An instance of {@link IsolatedFeeData}.
      */
     public IsolatedFeeData getUseAsset() {
         return data.stream()
