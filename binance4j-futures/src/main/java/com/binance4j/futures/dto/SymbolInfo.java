@@ -57,7 +57,7 @@ public record SymbolInfo(
                          @ApiModelProperty("") String underlyingType,
                          @ApiModelProperty("") List<String> underlyingSubType,
 
-                         @ApiModelProperty("") int settlePlan,
+                         @ApiModelProperty("") Double settlePlan,
                          @ApiModelProperty("Trigger threshold for conditional orders with 'price Protect' enabled") String triggerProtect,
                          @ApiModelProperty("Allowed orders on the symbol*.") @JsonDeserialize(using = SymbolFiltersDeserializer.class) SymbolFilters filters,
                          @ApiModelProperty("Symbol status.") List<String> OrderType
