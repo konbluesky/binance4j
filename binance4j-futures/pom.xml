@@ -22,14 +22,9 @@
         <maven.compiler.target>17</maven.compiler.target>
     </properties>
     <dependencies>
-        <!--        <dependency>-->
-        <!--            <groupId>com.binance4j</groupId>-->
-        <!--            <artifactId>binance4j-core</artifactId>-->
-        <!--            <version>2.4.0</version>-->
-        <!--        </dependency>-->
         <dependency>
             <groupId>com.binance4j</groupId>
-            <artifactId>binance4j-connectors</artifactId>
+            <artifactId>binance4j-core</artifactId>
             <version>2.4.0</version>
         </dependency>
         <dependency>

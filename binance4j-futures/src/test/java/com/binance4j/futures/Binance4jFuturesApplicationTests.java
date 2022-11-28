@@ -1,6 +1,5 @@
 package com.binance4j.futures;
 
-import com.binance4j.connectors.Connectors;
 import com.binance4j.core.exception.ApiException;
 import com.binance4j.core.test.CustomTest;
 import com.binance4j.futures.client.UFuturesMarketClient;

@@ -2,10 +2,9 @@ package com.binance4j.futures.param;
 
 import com.binance4j.core.annotation.Param;
 import com.binance4j.core.param.Params;
-import com.binance4j.market.client.MarketClient;
-
+import com.binance4j.futures.client.UFuturesMarketClient;
 /**
- * {@link MarketClient#getTicker} params.
+ * {@link UFuturesMarketClient#getTicker} params.
  * 
  * @param symbol Symbol.
  */
