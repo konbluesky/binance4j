@@ -1,5 +1,8 @@
 package com.binance4j.loan.client;
 
+import com.binance4j.core.param.Paging;
+import com.binance4j.loan.param.LoanBorrowHistoryParams;
+import com.binance4j.loan.param.LoanBorrowParams;
 import org.junit.jupiter.api.Test;
 
 import com.binance4j.core.exception.ApiException;
@@ -24,5 +27,10 @@ public class LoanClientTest extends CustomTest {
 	@Test
 	void testGetLoansIncome2() throws ApiException {
 		testNotThrow(client.getLoansIncome(new LoanIncomeHistoryParams(asset), new TimeFrame(25)));
+	}
+
+	@Test
+	void borrowHistory() throws ApiException {
+		testNotThrow(client.borrowHistory(new LoanBorrowHistoryParams(), new Paging(1, 10)));
 	}
 }
