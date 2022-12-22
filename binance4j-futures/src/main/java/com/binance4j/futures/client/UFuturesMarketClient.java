@@ -1,6 +1,8 @@
 package com.binance4j.futures.client;
 
 import com.binance4j.core.Request;
+import com.binance4j.core.param.Params;
+import com.binance4j.core.param.TimeFrame;
 import com.binance4j.futures.client.mapping.UMarketMapping;
 import com.binance4j.futures.dto.*;
 import com.binance4j.futures.param.*;
@@ -91,5 +93,26 @@ public class UFuturesMarketClient extends BaseUFuturesClient<UMarketMapping> {
      */
     public Request<List<AggTrade>> getAggTrades(AggTradeParams params) {
         return new Request<>(service.getAggTrades(params.toMap()));
+    }
+
+
+    /**
+     * Get compressed, aggregate trades. Trades that fill at the time, from the same
+     * order, with the same price will have
+     * the quantity aggregated.
+     * <p>
+     * If {@code startTime}, and {@code endTime} are sent, time between startTime
+     * and endTime must be less than 1 hour.
+     * <p>
+     * If {@code fromId}, {@code startTime}, and {@code endTime} are not sent, the
+     * most recent aggregate trades will be
+     * returned.
+     *
+     * @param params    Request params.
+     * @param timeFrame Time interval search.
+     * @return The request to execute.
+     */
+    public Request<List<AggTrade>> getAggTrades(AggTradeParams params, TimeFrame timeFrame) {
+        return new Request<>(service.getAggTrades(Params.merge(params, timeFrame)));
     }
 }

@@ -100,6 +100,15 @@ public class MarketClientTest extends CustomTest {
 	}
 
 	@Test
+	void testGetExchangeInfo3() throws ApiException {
+		testNotThrow(client.getExchangeInfo(new ExchangeInfoParams("SPOT",true)));
+	}
+	@Test
+	void testGetExchangeInfo4() throws ApiException {
+		testNotThrow(client.getExchangeInfo(new ExchangeInfoParams()));
+	}
+
+	@Test
 	void testGetHistoricalTrades() throws ApiException {
 		testNotThrow(client.getHistoricalTrades(new HistoricalTradesParams(symbol)));
 	}

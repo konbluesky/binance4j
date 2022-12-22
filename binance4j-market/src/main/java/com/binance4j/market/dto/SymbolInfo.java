@@ -10,7 +10,7 @@ import io.swagger.annotations.ApiModelProperty;
 
 /**
  * Symbol information (base/quote).
- * 
+ *
  * @param status                     Symbol status.
  * @param orderTypes                 Allowed orders on the symbol*.
  * @param filters                    Symbol filters.
@@ -30,9 +30,12 @@ import io.swagger.annotations.ApiModelProperty;
  * @param allowTrailingStop          Is spot trading allowed?
  * @param isSpotTradingAllowed       Is trailing stop allowed?
  * @param isMarginTradingAllowed     Is margin trading allowed?
+ * @param defaultSelfTradePreventionMode New field,no clear instructions yet
+ * @param allowedSelfTradePreventionModes New field,no clear instructions yet
  * @see <a href=
  *      "https://dev.binance.vision/t/explanation-on-symbol-status/118">symbol
  *      status explanation</a>
+ * @see <a href="https://binance-docs.github.io/apidocs/spot/cn/#185368440e"></a>
  */
 @ApiModel("Symbol information (base/quote).")
 public record SymbolInfo(@ApiModelProperty("Symbol status.") List<String> orderTypes,
@@ -52,5 +55,7 @@ public record SymbolInfo(@ApiModelProperty("Symbol status.") List<String> orderT
 		@ApiModelProperty("Cancel replace allowed?") boolean cancelReplaceAllowed,
 		@ApiModelProperty("Is trailing stop allowed?") boolean allowTrailingStop,
 		@ApiModelProperty("Is spot trading allowed?") boolean isMarginTradingAllowed,
+		@ApiModelProperty("New field,no clear instructions yet") String defaultSelfTradePreventionMode,
+		@ApiModelProperty("New field,no clear instructions yet") List<String> allowedSelfTradePreventionModes,
 		@ApiModelProperty("Is margin trading allowed?") String status) {
 }

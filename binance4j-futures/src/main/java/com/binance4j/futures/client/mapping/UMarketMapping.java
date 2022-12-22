@@ -94,6 +94,4 @@ public interface UMarketMapping extends RestMapping {
     @Headers({ IP_H, "X-WEIGHT: 50" })
     Call<List<AggTrade>> getAggTrades(@QueryMap Map<String, Object> map);
 
-
-
 }
